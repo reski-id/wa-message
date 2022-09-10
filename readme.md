@@ -103,6 +103,7 @@ This software uses the following Tech:
 ## 📱 Contact me
 feel free to contact me ... 
 - Email programmer.reski@gmail.com 
-- Whatsapp <a href="https://wa.me/+6281261478432?text=Hello">Send WhatsApp Message</a>
-- [Linkedin](www.linkedin.com/in/reski-id)
+- [Linkedin](https://www.linkedin.com/in/reski-id)
 - [Github](https://github.com/reski-id)
+- Whatsapp <a href="https://wa.me/+6281261478432?text=Hello">Send WhatsApp Message</a>
+
