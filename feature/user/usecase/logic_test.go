@@ -10,7 +10,7 @@ import (
 	"github.com/stretchr/testify/mock"
 )
 
-func TestAddUser(t *testing.T) {
+func TestRegister(t *testing.T) {
 	repo := new(mocks.UserData)
 	mockData := domain.User{
 		UserName: "antonio",
@@ -64,9 +64,53 @@ func TestAddUser(t *testing.T) {
 }
 
 func TestLoginUser(t *testing.T) {
+	repo := new(mocks.UserData)
+	mockData := domain.User{ID: 1, UserName: "antonio", Password: "123"}
+	returnData := domain.User{ID: 1}
 
+	t.Run("Success Login", func(t *testing.T) {
+		repo.On("Login", mock.Anything).Return(200, returnData, nil).Once()
+		userUseCase := New(repo, validator.New())
+		_, err, _ := userUseCase.LoginUser(mockData)
+
+		assert.NotNil(t, err)
+		repo.AssertExpectations(t)
+	})
 }
 
 func TestUpdateUser(t *testing.T) {
+	repo := new(mocks.UserData)
 
+	mockData := domain.User{ID: 1, UserName: "antonio", Password: "antonio123", FullName: "Antonio Banderas"}
+
+	returnData := domain.User{ID: 1, UserName: "antonio", Password: "antonio123", FullName: "Antonio Banderas"}
+
+	t.Run("Success Update", func(t *testing.T) {
+		repo.On("Update", mock.Anything, mock.Anything).Return(returnData).Once()
+		useCase := New(repo, validator.New())
+		res, _ := useCase.UpdateUser(1, mockData)
+		assert.Equal(t, returnData, res)
+		repo.AssertExpectations(t)
+	})
+}
+
+func TestDeleteUser(t *testing.T) {
+	repo := new(mocks.UserData)
+
+	t.Run("Success Delete", func(t *testing.T) {
+		repo.On("Delete", mock.Anything).Return(200, nil).Once()
+		useCase := New(repo, validator.New())
+		delete, _ := useCase.DeleteUser(1)
+
+		assert.Equal(t, 200, delete)
+		repo.AssertExpectations(t)
+	})
+	t.Run("Data Not Found", func(t *testing.T) {
+		repo.On("Delete", mock.Anything).Return(404, nil).Once()
+		useCase := New(repo, validator.New())
+		delete, _ := useCase.DeleteUser(0)
+
+		assert.Equal(t, 404, delete)
+		repo.AssertExpectations(t)
+	})
 }
