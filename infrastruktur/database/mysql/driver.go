@@ -5,6 +5,7 @@ import (
 	"log"
 	"wa/config"
 	msgData "wa/feature/message/data"
+	userData "wa/feature/user/data"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -21,5 +22,5 @@ func InitDB(cfg *config.AppConfig) *gorm.DB {
 }
 
 func MigrateData(db *gorm.DB) {
-	db.AutoMigrate(msgData.Message{})
+	db.AutoMigrate(msgData.Message{}, userData.User{})
 }
