@@ -14,6 +14,6 @@ Comment
 | ------------- | ------------- 
   
 
-Dockerhub
+Dockerhub Deploy
 
 Github https://github.com/reski-id/wa-message
