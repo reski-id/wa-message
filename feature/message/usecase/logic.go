@@ -21,8 +21,6 @@ func New(ud domain.MessageData, v *validator.Validate) domain.MessageUseCase {
 
 func (cc *msgUseCase) AddMessage(IDUser int, newMessage domain.Message) (domain.Message, error) {
 
-	newMessage.IDUser = 1
-
 	res := cc.msgData.Insert(newMessage)
 
 	if res.ID == 0 {
