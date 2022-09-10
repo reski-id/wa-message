@@ -18,14 +18,17 @@ type Message struct {
 type MessageUseCase interface {
 	//usecase
 	AddMessage(IDUser int, useMessage Message) (Message, error)
+	DelMessage(IDMessage int) (bool, error)
 }
 
 type MessageHandler interface {
 	//handler
 	InsertMessage() echo.HandlerFunc
+	DeleteMessage() echo.HandlerFunc
 }
 
 type MessageData interface {
 	//data
 	Insert(insertMessage Message) Message
+	Delete(IDMessage int) bool
 }

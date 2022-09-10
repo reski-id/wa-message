@@ -14,4 +14,5 @@ func RouteMessage(e *echo.Echo, mh domain.MessageHandler) {
 		AllowMethods: []string{echo.GET, echo.POST, echo.PUT, echo.DELETE},
 	}))
 	e.POST("/message", mh.InsertMessage())
+	e.DELETE("/message/:id", mh.DeleteMessage())
 }
