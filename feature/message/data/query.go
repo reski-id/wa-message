@@ -2,6 +2,7 @@ package data
 
 import (
 	"fmt"
+	"log"
 	"wa/domain"
 
 	"gorm.io/gorm"
@@ -25,4 +26,17 @@ func (cd *messageData) Insert(newmessage domain.Message) domain.Message {
 		return domain.Message{}
 	}
 	return cnv.ToDomain()
+}
+
+func (cd *messageData) Delete(msgID int) bool {
+	err := cd.db.Where("ID = ?", msgID).Delete(&Message{})
+	if err.Error != nil {
+		log.Println("Cannot delete data", err.Error.Error())
+		return false
+	}
+	if err.RowsAffected < 1 {
+		log.Println("No data deleted", err.Error.Error())
+		return false
+	}
+	return true
 }

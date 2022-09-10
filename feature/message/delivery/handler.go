@@ -3,18 +3,19 @@ package delivery
 import (
 	"log"
 	"net/http"
+	"strconv"
 	"wa/domain"
 
 	"github.com/labstack/echo/v4"
 )
 
 type msgHandler struct {
-	mercUsecase domain.MessageUseCase
+	msgUsecase domain.MessageUseCase
 }
 
 func New(cu domain.MessageUseCase) domain.MessageHandler {
 	return &msgHandler{
-		mercUsecase: cu,
+		msgUsecase: cu,
 	}
 }
 
@@ -37,5 +38,29 @@ func (ch *msgHandler) InsertMessage() echo.HandlerFunc {
 			"message": "success create data",
 		})
 
+	}
+}
+
+func (ch *msgHandler) DeleteMessage() echo.HandlerFunc {
+	return func(c echo.Context) error {
+
+		cnv, err := strconv.Atoi(c.Param("id"))
+		if err != nil {
+			log.Println("Cannot convert to int", err.Error())
+			return c.JSON(http.StatusInternalServerError, "cannot convert id")
+		}
+
+		data, err := ch.msgUsecase.DelMessage(cnv)
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, "cannot delete data")
+		}
+
+		if !data {
+			return c.JSON(http.StatusInternalServerError, "cannot delete")
+		}
+
+		return c.JSON(http.StatusOK, map[string]interface{}{
+			"message": "success delete data",
+		})
 	}
 }

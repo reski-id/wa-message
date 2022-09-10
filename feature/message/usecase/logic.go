@@ -30,3 +30,13 @@ func (cc *msgUseCase) AddMessage(IDUser int, newMessage domain.Message) (domain.
 	}
 	return res, nil
 }
+
+func (cc *msgUseCase) DelMessage(IDMessage int) (bool, error) {
+	res := cc.msgData.Delete(IDMessage)
+
+	if !res {
+		return false, errors.New("failed delete")
+	}
+
+	return true, nil
+}
