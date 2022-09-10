@@ -8,22 +8,22 @@
 
 <p align="left">
   • <a href="#key-features">Key Features</a> <br>
-  • <a href="#Installing -and-runing-from-github">Install Using Github</a> <br>
- • <a href="#installing-and-runing-with-docker">Install Using Docker</a><br>
+  • <a href="#Installing -and-runing-from-github">Installing Using Github</a> <br>
+ • <a href="#installing-and-runing-with-docker">Installing Using Docker</a><br>
   • <a href="#end-point">End Point</a><br>
   • <a href="#technologi">Technologi that i use</a><br>
-  • <a href="#contact">Contact me</a><br>
+  • <a href="#contact-me">Contact me</a><br>
 </p>
 
 
-## Key Features
+## 📱 Key Features
 
 * User can register
 * User can login
 * User send messages 
 * User reply messages
 
-## Installing and Runing from Github
+## ⚙️ Installing and Runing from Github
 
 installing and running the app from github repository <br>
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Golang](https://go.dev/dl/) installed on your computer. From your command line:
@@ -46,7 +46,7 @@ $ go run main.go
 > Make sure you allrady create database for this app see local `.env` file.
 
 
-## Installing and Runing with Docker
+## ⚙️ Installing and Runing with Docker
 if you are using docker or aws/google cloud server you can run this application by creating a container. <br>
 
 ```bash
@@ -65,7 +65,7 @@ $ ocker run --name waapp -p 80:8000 -d --link mysqlku -e SECRET="secr3t" -e SERV
 $ docker logs waapp
 ```
 
-## End Point
+## 📜 End Point  
 
 Users
 | Methode       | EndPoint       | ...
@@ -84,7 +84,7 @@ Message
 
 
 
-## Technologi
+## 🛠️ Technologi
 
 This software uses the following Tech:
 
@@ -100,7 +100,7 @@ This software uses the following Tech:
 - [Trunk Base Developmen](https://trunkbaseddevelopment.com/)
 - [JSON Web Tokens (JWT)](https://jwt.io/)
 
-## Contact
+## 📱 Contact me
 feel free to contact me ... 
 - Email programmer.reski@gmail.com 
 - Whatsapp <a href="https://wa.me/+6281261478432?text=Hello">Send WhatsApp Message</a>
