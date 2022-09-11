@@ -6,12 +6,11 @@
 </h1>
 
 <h4 align="center">Messaging app Rest API Backend, users can send and reply to messages 
-
+<br>
 <br>
 <img src="readme\app.gif" alt="Running App" width="70%" height=70% align="center">
 
 </h4>
-<br>
 <p align="left">
 <h2>
   Content <br></h2>
@@ -67,7 +66,7 @@ $ docker pull mysql
 $ docker run --name mysqlku -p 3306:3306 -d -e MYSQL_ROOT_PASSWORD="yourmysqlpassword" mysql 
 
 # create app container
-$ ocker run --name waapp -p 80:8000 -d --link mysqlku -e SECRET="secr3t" -e SERVERPORT=8000 -e Name="message_app" -e Address=mysqlku -e Port=3306 -e Username="root" -e Password="yourmysqlpassword" programmerreski/wa-app
+$ docker run --name waapp -p 80:8000 -d --link mysqlku -e SECRET="secr3t" -e SERVERPORT=8000 -e Name="message_app" -e Address=mysqlku -e Port=3306 -e Username="root" -e Password="yourmysqlpassword" programmerreski/wa-app
 
 # Run the app
 $ docker logs waapp
