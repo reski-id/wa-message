@@ -8,7 +8,10 @@
 <h4 align="center">Messaging app Rest API Backend, users can send and reply to messages 
 
 <br>
-<img src="readme\app.gif" alt="Running App" width="70%" height=70% align="center">
+<video width="350" height="300"  controls autoplay>
+  <source src="readme\full.mp4" type="video/mp4">
+  you will find this app video on readme/full.mp4 folder
+</video>
 </h4>
 <br>
 <p align="left">
