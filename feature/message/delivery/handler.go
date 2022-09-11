@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"strconv"
 	"wa/domain"
+	"wa/feature/common"
 
 	"github.com/labstack/echo/v4"
 )
@@ -29,6 +30,9 @@ func (ch *msgHandler) InsertMessage() echo.HandlerFunc {
 			c.JSON(http.StatusBadRequest, "error read input")
 		}
 
+		var IDUser = common.ExtractData(c)
+		data, err := ch.msgUsecase.AddMessage(IDUser, tmp.ToDomain())
+
 		if err != nil {
 			log.Println("Cannot proces data", err)
 			c.JSON(http.StatusInternalServerError, err)
@@ -36,6 +40,7 @@ func (ch *msgHandler) InsertMessage() echo.HandlerFunc {
 
 		return c.JSON(http.StatusCreated, map[string]interface{}{
 			"message": "success create data",
+			"data":    FromDomain(data),
 		})
 
 	}
@@ -52,7 +57,7 @@ func (ch *msgHandler) DeleteMessage() echo.HandlerFunc {
 
 		data, err := ch.msgUsecase.DelMessage(cnv)
 		if err != nil {
-			return c.JSON(http.StatusInternalServerError, "cannot delete data")
+			return c.JSON(http.StatusInternalServerError, "cannot delete user")
 		}
 
 		if !data {

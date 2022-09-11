@@ -8,11 +8,12 @@ import (
 
 type Message struct {
 	//struct
-	ID        int
-	Message   string
-	IDUser    int
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	ID              int
+	Message         string
+	MessageParentID int
+	IDUser          int
+	CreatedAt       time.Time
+	UpdatedAt       time.Time
 }
 
 type MessageUseCase interface {

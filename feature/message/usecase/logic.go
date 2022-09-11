@@ -2,6 +2,7 @@ package usecase
 
 import (
 	"errors"
+	"fmt"
 	"wa/domain"
 
 	validator "github.com/go-playground/validator/v10"
@@ -20,11 +21,16 @@ func New(ud domain.MessageData, v *validator.Validate) domain.MessageUseCase {
 }
 
 func (cc *msgUseCase) AddMessage(IDUser int, newMessage domain.Message) (domain.Message, error) {
+	if IDUser == -1 {
+		return domain.Message{}, errors.New("invalid user")
+	}
+
+	newMessage.IDUser = IDUser
+	fmt.Println("logic", IDUser)
 
 	res := cc.msgData.Insert(newMessage)
-
 	if res.ID == 0 {
-		return domain.Message{}, errors.New("error insert")
+		return domain.Message{}, errors.New("error insert data")
 	}
 	return res, nil
 }
