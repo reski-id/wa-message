@@ -2,11 +2,18 @@
 <h1 align="center">
   Wa-Message App
   <br>
+  
 </h1>
 
-<h4 align="center">Messaging app Rest API Backend, users can send and reply to messages </h4>
+<h4 align="center">Messaging app Rest API Backend, users can send and reply to messages 
+<br>
+<br>
+<img src="readme\app.gif" alt="Running App" width="70%" height=70% align="center">
 
+</h4>
 <p align="left">
+<h2>
+  Content <br></h2>
   • <a href="#key-features">Key Features</a> <br>
   • <a href="#Installing -and-runing-from-github">Installing Using Github</a> <br>
  • <a href="#installing-and-runing-with-docker">Installing Using Docker</a><br>
@@ -97,7 +104,7 @@ This software uses the following Tech:
 - [Dockerhub](https://hub.docker.com/u/programmerreski)
 - [Mockery Unit Testing](https://github.com/vektra/mockery)
 - [Git Repository](https://github.com/reski-id)
-- [Trunk Base Developmen](https://trunkbaseddevelopment.com/)
+- [Trunk Base Development](https://trunkbaseddevelopment.com/)
 - [JSON Web Tokens (JWT)](https://jwt.io/)
 
 ## 📱 Contact me
