@@ -5,11 +5,15 @@
   
 </h1>
 
-<h4 align="center">Messaging app Rest API Backend, users can send and reply to messages </h4>
+<h4 align="center">Messaging app Rest API Backend, users can send and reply to messages 
 
 <br>
-<img src="readme\app.gif" alt="Running App" width="100%" height=100% align="center">
+<img src="readme\app.gif" alt="Running App" width="70%" height=70% align="center">
+</h4>
+<br>
 <p align="left">
+<h2>
+  Content <br></h2>
   • <a href="#key-features">Key Features</a> <br>
   • <a href="#Installing -and-runing-from-github">Installing Using Github</a> <br>
  • <a href="#installing-and-runing-with-docker">Installing Using Docker</a><br>
